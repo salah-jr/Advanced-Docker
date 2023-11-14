@@ -1,4 +1,4 @@
-FROM node:14 as base
+FROM node:18 as base
 WORKDIR /app
 COPY package.json .
 EXPOSE 4000
