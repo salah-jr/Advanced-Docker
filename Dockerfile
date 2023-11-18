@@ -8,6 +8,7 @@ RUN npm install
 COPY . .
 CMD ["npm", "run", "start-dev"]
 
+
 FROM base as production
 RUN npm install --only=production
 COPY . .
