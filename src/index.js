@@ -36,12 +36,12 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.get('/', (req, res) => {
     redisClient.set('products', 'Products...')
-    res.send('Hello Salah!');
+    res.send('Hello World!');
 });
 
 app.get('/data', async (req, res) => {
     const products = await redisClient.get('products');
-    res.send(`Hello Salah! <h2>${products}</h2>`);
+    res.send(`Hello World! <h2>${products}</h2>`);
 });
 
 app.listen(port, () => {
