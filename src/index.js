@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const pg = require('pg');
 const redis = require("redis");
 
 // Initialize the express app
@@ -21,12 +21,16 @@ redisClient.connect();
 // Database Connection
 const DB_USER = 'root';
 const DB_PASSWORD = 'root';
-const DB_HOST = 'mongo_db';
-const DB_PORT = 27017;
+const DB_HOST = 'postgres';
+const DB_PORT = 5432;
 
-const uri = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
+const uri = `postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+const client = new pg.Client({
+    connectionString: uri,
+})
+
+client.connect(undefined)
     .then(() => {
         console.log('Connected To MongoDB...');
     })
