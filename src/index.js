@@ -36,7 +36,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.get('/', (req, res) => {
     redisClient.set('products', 'Products...')
-    res.send('Hello World!');
+    res.send('Hello World! From Docker...');
 });
 
 app.get('/data', async (req, res) => {

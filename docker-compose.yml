@@ -2,8 +2,8 @@ version: "3"
 
 services:
   node-app:
-    build: .
     container_name: "express-app-container"
+    image: salah22/first-docker
     depends_on: ['mongo']
     ports:
       - "4000:4000"
