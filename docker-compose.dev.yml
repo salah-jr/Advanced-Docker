@@ -2,7 +2,6 @@ version: "3"
 
 services:
   node-app:
-    container_name: container-node-dev
     build:
       context: .
       target: development
